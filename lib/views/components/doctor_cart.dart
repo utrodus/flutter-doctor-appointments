@@ -1,7 +1,16 @@
 import 'package:flutter/material.dart';
 
 class DoctorCard extends StatelessWidget {
-  const DoctorCard({Key? key}) : super(key: key);
+  final String doctorName;
+  final String specialist;
+  final String photo;
+  DoctorCard(
+      {Key? key,
+      this.doctorName = "Dr. Bellamy N",
+      this.specialist = "Viralogist",
+      this.photo =
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnLnP_dX6SiNEaqhA_MiXBlUAZSWEXRvds-A&usqp=CAU"})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +37,7 @@ class DoctorCard extends StatelessWidget {
           ),
           Text(
             "Dr. Bellamy N",
+            overflow: TextOverflow.ellipsis,
             style: TextStyle(
                 color: Color(0xFF222B45),
                 fontSize: 14,
@@ -37,6 +47,7 @@ class DoctorCard extends StatelessWidget {
             padding: EdgeInsets.only(top: 2),
             child: Text(
               "Viralogist",
+              overflow: TextOverflow.ellipsis,
               style: TextStyle(
                   color: Color(0xff6B779A),
                   fontSize: 13,
@@ -55,10 +66,14 @@ class DoctorCard extends StatelessWidget {
                     size: 16,
                   ),
                 ),
-                Text(
-                  "4.5 (135 reviews)",
-                  style: TextStyle(
-                    fontSize: 12,
+                Container(
+                  width: 100,
+                  child: Text(
+                    "4.5 (135 reviews)",
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      fontSize: 12,
+                    ),
                   ),
                 ),
               ],
