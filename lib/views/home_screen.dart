@@ -1,3 +1,4 @@
+import 'package:doctor_appointments/views/components/doctor_cart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -118,36 +119,10 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              Container(
-                color: Colors.white,
-                width: 180,
-                child: Container(
-                  padding: EdgeInsets.fromLTRB(20, 15, 20, 20),
-                  child: Column(
-                    children: [
-                      Container(
-                        margin: EdgeInsets.all(20),
-                        width: 72,
-                        height: 72,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          image: DecorationImage(
-                              image: NetworkImage(
-                                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnLnP_dX6SiNEaqhA_MiXBlUAZSWEXRvds-A&usqp=CAU'),
-                              fit: BoxFit.cover),
-                        ),
-                      ),
-                      Text("Dr. Bellamy N"),
-                      Text("Viralogist"),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.star),
-                          Text("4.5 (135 reviews)"),
-                        ],
-                      ),
-                    ],
-                  ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [DoctorCard(), DoctorCard(), DoctorCard()],
                 ),
               ),
             ],
