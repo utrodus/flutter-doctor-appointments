@@ -4,12 +4,14 @@ class DoctorCard extends StatelessWidget {
   final String doctorName;
   final String specialist;
   final String photo;
+  final String review;
   DoctorCard(
       {Key? key,
       this.doctorName = "Dr. Bellamy N",
       this.specialist = "Viralogist",
       this.photo =
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnLnP_dX6SiNEaqhA_MiXBlUAZSWEXRvds-A&usqp=CAU"})
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnLnP_dX6SiNEaqhA_MiXBlUAZSWEXRvds-A&usqp=CAU",
+      this.review = "4.5 (135 reviews)"})
       : super(key: key);
 
   @override
@@ -30,13 +32,11 @@ class DoctorCard extends StatelessWidget {
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               image: DecorationImage(
-                  image: NetworkImage(
-                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnLnP_dX6SiNEaqhA_MiXBlUAZSWEXRvds-A&usqp=CAU'),
-                  fit: BoxFit.cover),
+                  image: NetworkImage(photo), fit: BoxFit.cover),
             ),
           ),
           Text(
-            "Dr. Bellamy N",
+            doctorName,
             overflow: TextOverflow.ellipsis,
             style: TextStyle(
                 color: Color(0xFF222B45),
@@ -46,7 +46,7 @@ class DoctorCard extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(top: 2),
             child: Text(
-              "Viralogist",
+              specialist,
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
                   color: Color(0xff6B779A),
@@ -69,7 +69,7 @@ class DoctorCard extends StatelessWidget {
                 Container(
                   width: 100,
                   child: Text(
-                    "4.5 (135 reviews)",
+                    review,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
                       fontSize: 12,

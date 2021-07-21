@@ -122,7 +122,13 @@ class HomeScreen extends StatelessWidget {
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
-                  children: [DoctorCard(), DoctorCard(), DoctorCard()],
+                  children: [
+                    DoctorCard(
+                      doctorName: "Dr Utrodus",
+                    ),
+                    DoctorCard(),
+                    DoctorCard()
+                  ],
                 ),
               ),
             ],
