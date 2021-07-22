@@ -1,0 +1,99 @@
+{
+    "doctors": [{
+            "name": "Dr. Bellamy N",
+            "specialist": "Viralogist",
+            "rating": "4.5",
+            "reviews": " (135 reviews)",
+            "isOnline": true,
+            "patients": "1000+",
+            "experience": "10 Yrs",
+            "about": "Dr. Bellamy Nicholas is a top specialist at London Bridge Hospital at London. He has achieved several awards and recognition for is contribution and service in his own field. He is available for private consultation. ",
+            "working_time": "Mon - Sat (08:30 AM - 09:00 PM)",
+            "photo": "https://upload.wikimedia.org/wikipedia/commons/8/8e/G%C3%A9rald_KIERZEK_%28Cr%C3%A9dit_Ibo%29.jpg"
+        },
+        {
+            "name": "Dr. Aditya Surya P",
+            "specialist": "Oncologists",
+            "rating": "4.3",
+            "reviews": " (120 reviews)",
+            "isOnline": true,
+            "patients": "1000+",
+            "experience": "3 Yrs",
+            "about": "Dr. Aditya Surya Pratama ialah lulusan Fakultas Kedokteran Universitar YARSI Jakarta ini sudah jadi salah satu pengisi acara dr. OZ Indonesia.",
+            "working_time": "Mon - Sat (07:30 AM - 11:00 PM)",
+            "photo": "https://cdn.idntimes.com/content-images/community/2018/12/temp-regrann-1545746984045-7e5180fd9c9143f1e65ad2f8137934ee.jpg"
+        },
+        {
+            "name": "Dr. Reisa Broto Asmoro",
+            "specialist": "Surgeon",
+            "rating": "4.8",
+            "reviews": " (150 reviews)",
+            "isOnline": true,
+            "patients": "1200+",
+            "experience": "6 Yrs",
+            "about": "Dr. Reisa Broto Asmoro adalah seorang dokter, aktris dan model asal Indonesia. Ia mewakili provinsi DI Yogyakarta pada kontes Puteri Indonesia 2011 dan bergelar sebagai Puteri Indonesia Lingkungan 2010. Reisa mewakili Indonesia pada ajang Miss International 2011 di Tiongkok. ",
+            "working_time": "Sun - Sat (09:30 AM - 14:00 PM)",
+            "photo": "https://disk.mediaindonesia.com/thumbs/600x400/news/2020/09/b04ddfdf6db81b8077c6c3a47ff5e5d8.jpg"
+        },
+        {
+            "name": "Dr. Rafki Haris",
+            "specialist": "Pediatrician",
+            "rating": "4.7",
+            "reviews": " (100 reviews)",
+            "isOnline": true,
+            "patients": "900+",
+            "experience": "3 Yrs",
+            "about": "Dr. Rafki Haris ialah seorang Dokter Pediatrician. Beliau menamatkan pendidikan Kedokteran Umum pada tahun 1989 di Universitas Sumatera Utara, Medan.",
+            "working_time": "Sun - Sat (09:30 AM - 14:00 PM)",
+            "photo": "https://dbq8hrmshvuto.cloudfront.net/555/3bb76/7d8e/4b1c/a5d8/557c55d9b499/normal/1450806.jpg"
+        },
+        {
+            "name": "Dr. Shabrina Narasati Aulia",
+            "specialist": "Rheumatologists",
+            "rating": "4.8",
+            "reviews": " (100 reviews)",
+            "isOnline": true,
+            "patients": "1200+",
+            "experience": "5 Yrs",
+            "about": "Dr. Shabrina Narasati Aulia is  Doctor  Rheumatologists & Rehabilitation Resident ",
+            "working_time": "Mon - Thu (09:30 AM - 14:00 PM)",
+            "photo": "https://awsimages.detik.net.id/community/media/visual/2017/04/20/89e1a75d-dc02-44d8-9934-898e54c9560f_916.png"
+        },
+        {
+            "name": "Dr. Nadia Alaydrus",
+            "specialist": "Radiologists",
+            "rating": "4.8",
+            "reviews": " (100 reviews)",
+            "isOnline": true,
+            "patients": "1200+",
+            "experience": "4 Yrs",
+            "about": "Dr. Nadia Alaydrus is  Doctor  Radiologists  ",
+            "working_time": "Mon - Thu (09:30 AM - 14:00 PM)",
+            "photo": "https://pbs.twimg.com/media/DokaC2JVsAA_Xuv.jpg"
+        },
+        {
+            "name": "Dr. Mensah T",
+            "specialist": "Surgeon",
+            "rating": "4.4",
+            "reviews": " (100 reviews)",
+            "isOnline": true,
+            "patients": "1500+",
+            "experience": "7 Yrs",
+            "about": "Dr. Mensah T is  Doctor  Surgeon  ",
+            "working_time": "Mon - Thu (09:30 AM - 14:00 PM)",
+            "photo": "https://pbs.twimg.com/profile_images/1078161601180528640/uAOW51Oj.jpg"
+        },
+        {
+            "name": "Dr. Tirta",
+            "specialist": "Viralogist",
+            "rating": "4.4",
+            "reviews": " (100 reviews)",
+            "isOnline": true,
+            "patients": "1500+",
+            "experience": "3 Yrs",
+            "about": "Dr. Tirta T is Doctor  Viralogist  ",
+            "working_time": "Mon - Thu (09:30 AM - 14:00 PM)",
+            "photo": "https://media.suara.com/pictures/653x366/2021/07/03/51819-dr-tirta-instagram.jpg"
+        }
+    ]
+}
