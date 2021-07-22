@@ -44,6 +44,7 @@ flutter:
     - assets/svg/chat.svg
     - assets/svg/phone.svg
     - assets/svg/video.svg
+    - assets/doctors.json
 
   fonts:
     - family: Poppins-Regular
