@@ -12,6 +12,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  // list doctors
   List doctors = [];
 
   @override
@@ -44,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.max,
+            mainAxisSize: MainAxisSize.min,
             children: [
               Text(
                 "Welcome Utrodus,",
@@ -130,7 +131,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.fromLTRB(0, 32, 0, 20),
+                padding: EdgeInsets.fromLTRB(0, 32, 0, 5),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -157,30 +158,32 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
               ),
-              doctors.length > 0
-                  ? Container(
-                      height: 225,
-                      child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        addRepaintBoundaries: true,
-                        shrinkWrap: true,
-                        itemCount: doctors.length,
-                        itemBuilder: (context, index) {
-                          return DoctorCard(
-                            doctorName: doctors[index]["name"],
-                            photo: doctors[index]["photo"],
-                            specialist: doctors[index]['specialist'],
-                            review: doctors[index]['reviews'],
-                            isOnline: doctors[index]['isOnline'],
-                          );
-                        },
-                      ),
-                    )
-                  : Container()
+              doctors.length > 0 ? _doctorsList(doctors) : Container()
             ],
           ),
         ),
       ),
     );
+  }
+
+  _doctorsList(doctors) {
+    List<Widget> listDoctors = [];
+    for (var index = 0; index < doctors.length; index++) {
+      listDoctors.add(DoctorCard(
+        doctorName: doctors[index]["name"],
+        photo: doctors[index]["photo"],
+        specialist: doctors[index]['specialist'],
+        review: doctors[index]['reviews'],
+        isOnline: doctors[index]['isOnline'],
+      ));
+    }
+
+    return Container(
+        child: SingleChildScrollView(
+            padding: EdgeInsets.fromLTRB(10, 10, 0, 20),
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: listDoctors,
+            )));
   }
 }

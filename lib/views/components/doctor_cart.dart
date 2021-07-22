@@ -23,8 +23,9 @@ class DoctorCard extends StatelessWidget {
       padding: EdgeInsets.fromLTRB(20, 25, 20, 20),
       width: 180,
       decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.all(Radius.circular(13))),
+        color: Colors.white,
+        borderRadius: BorderRadius.all(Radius.circular(13)),
+      ),
       child: Column(
         children: [
           Padding(
