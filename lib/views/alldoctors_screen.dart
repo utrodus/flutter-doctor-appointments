@@ -18,6 +18,8 @@ class _AllDoctorsScreenState extends State<AllDoctorsScreen> {
   // list doctors
   List doctors = [];
 
+  List foundDoctors = [];
+
   @override
   void initState() {
     getDoctorData();
@@ -30,8 +32,24 @@ class _AllDoctorsScreenState extends State<AllDoctorsScreen> {
     getDoctor.then((value) => {
           setState(() {
             doctors = value;
+            foundDoctors = value;
           })
         });
+  }
+
+  void _runFilter(String enteredKeyword) {
+    List results = [];
+    if (enteredKeyword.isEmpty) {
+      results = doctors;
+    } else {
+      results = doctors
+          .where((user) =>
+              user["name"].toLowerCase().contains(enteredKeyword.toLowerCase()))
+          .toList();
+    }
+    setState(() {
+      foundDoctors = results;
+    });
   }
 
   @override
@@ -70,6 +88,7 @@ class _AllDoctorsScreenState extends State<AllDoctorsScreen> {
             padding: EdgeInsets.fromLTRB(27, 15, 27, 25),
             child: TextField(
               controller: searchTextController,
+              onChanged: (value) => _runFilter(value),
               maxLines: 1,
               style: TextStyle(fontSize: 14, color: Colors.black),
               decoration: InputDecoration(
@@ -78,13 +97,13 @@ class _AllDoctorsScreenState extends State<AllDoctorsScreen> {
                       borderSide: BorderSide.none),
                   filled: true,
                   hintStyle: TextStyle(color: Color(0xff6B779A), fontSize: 14),
-                  suffixIcon: Icon(Icons.search),
+                  suffixIcon: Icon(Icons.search, color: Color(0xff6B779A)),
                   contentPadding:
                       EdgeInsets.only(left: 15, bottom: 11, top: 11, right: 15),
                   hintText: "Search For Doctor"),
             ),
           ),
-          doctors.length > 0
+          foundDoctors.length > 0
               ? Container(
                   width: double.infinity,
                   child: Center(
@@ -100,22 +119,38 @@ class _AllDoctorsScreenState extends State<AllDoctorsScreen> {
                           mainAxisSpacing: 18,
                           childAspectRatio: 0.85),
                       shrinkWrap: true,
-                      itemCount: doctors.length,
+                      itemCount: foundDoctors.length,
                       itemBuilder: (context, index) {
                         return Container(
                           child: DoctorCard(
-                            doctorName: doctors[index]["name"],
-                            photo: doctors[index]["photo"],
-                            specialist: doctors[index]['specialist'],
-                            review: doctors[index]['reviews'],
-                            isOnline: doctors[index]['isOnline'],
+                            doctorName: foundDoctors[index]["name"],
+                            photo: foundDoctors[index]["photo"],
+                            specialist: foundDoctors[index]['specialist'],
+                            review: foundDoctors[index]['reviews'],
+                            isOnline: foundDoctors[index]['isOnline'],
                           ),
                         );
                       },
                     ),
                   ),
                 )
-              : Container()
+              : Container(
+                  margin: EdgeInsets.fromLTRB(0, 30, 0, 0),
+                  alignment: Alignment.center,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(0, 0, 8, 0),
+                        child: Icon(Icons.error_outline),
+                      ),
+                      Text(
+                        'No results found',
+                        style: TextStyle(fontSize: 18),
+                      ),
+                    ],
+                  ),
+                ),
         ],
       )),
     );
