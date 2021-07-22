@@ -142,7 +142,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           color: Colors.black),
                     ),
                     TextButton(
-                      onPressed: () => {},
+                      onPressed: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => AllDoctorsScreen())),
                       child: Text(
                         "View All",
                         style: TextStyle(
@@ -156,7 +159,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               doctors.length > 0
                   ? Container(
-                      height: 236,
+                      height: 225,
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
                         addRepaintBoundaries: true,
@@ -168,6 +171,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             photo: doctors[index]["photo"],
                             specialist: doctors[index]['specialist'],
                             review: doctors[index]['reviews'],
+                            isOnline: doctors[index]['isOnline'],
                           );
                         },
                       ),

@@ -5,34 +5,59 @@ class DoctorCard extends StatelessWidget {
   final String specialist;
   final String photo;
   final String review;
+  final bool isOnline;
   DoctorCard(
       {Key? key,
       this.doctorName = "Dr. Bellamy N",
       this.specialist = "Viralogist",
       this.photo =
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnLnP_dX6SiNEaqhA_MiXBlUAZSWEXRvds-A&usqp=CAU",
-      this.review = "4.5 (135 reviews)"})
+      this.review = "4.5 (135 reviews)",
+      this.isOnline = false})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.fromLTRB(0, 0, 15, 0),
-      padding: EdgeInsets.fromLTRB(20, 8, 20, 20),
+      padding: EdgeInsets.fromLTRB(20, 25, 20, 20),
       width: 180,
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.all(Radius.circular(13))),
       child: Column(
         children: [
-          Container(
-            margin: EdgeInsets.all(20),
-            width: 72,
-            height: 72,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              image: DecorationImage(
-                  image: NetworkImage(photo), fit: BoxFit.cover),
+          Padding(
+            padding: EdgeInsets.fromLTRB(0, 0, 0, 18),
+            child: Stack(
+              children: [
+                Container(
+                  width: 72,
+                  height: 72,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                        image: NetworkImage(photo), fit: BoxFit.cover),
+                  ),
+                ),
+                isOnline
+                    ? Positioned(
+                        right: 1,
+                        top: 3,
+                        child: Container(
+                          width: 16,
+                          height: 16,
+                          decoration: BoxDecoration(
+                              border: Border.all(color: Colors.white, width: 2),
+                              color: Color(0xff3E64FF),
+                              shape: BoxShape.circle),
+                        ),
+                      )
+                    : Container(
+                        width: 0,
+                        height: 0,
+                      )
+              ],
             ),
           ),
           Text(
