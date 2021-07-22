@@ -1,9 +1,38 @@
+import 'package:doctor_appointments/controllers/DoctorsController.dart';
+import 'package:doctor_appointments/views/alldoctors_screen.dart';
 import 'package:doctor_appointments/views/components/doctor_cart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  List doctors = [];
+
+  @override
+  void initState() {
+    getDoctorData();
+    super.initState();
+  }
+
+  getDoctorData() {
+    Future<List<dynamic>> getDoctor = DoctorController.getAllDoctors();
+    getDoctor.then((value) => {
+          setState(() {
+            doctors = value;
+          })
+        });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,21 +60,27 @@ class HomeScreen extends StatelessWidget {
                       color: Colors.black),
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.fromLTRB(0, 16, 0, 0),
-                child: TextField(
-                  enabled: false,
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                          borderSide: BorderSide.none),
-                      filled: true,
-                      hintStyle:
-                          TextStyle(color: Color(0xff6B779A), fontSize: 14),
-                      suffixIcon: Icon(Icons.search),
-                      contentPadding: EdgeInsets.only(
-                          left: 15, bottom: 11, top: 11, right: 15),
-                      hintText: "Search For Doctor"),
+              GestureDetector(
+                onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => AllDoctorsScreen())),
+                child: Padding(
+                  padding: EdgeInsets.fromLTRB(0, 16, 0, 0),
+                  child: TextField(
+                    enabled: false,
+                    decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                            borderSide: BorderSide.none),
+                        filled: true,
+                        hintStyle:
+                            TextStyle(color: Color(0xff6B779A), fontSize: 14),
+                        suffixIcon: Icon(Icons.search),
+                        contentPadding: EdgeInsets.only(
+                            left: 15, bottom: 11, top: 11, right: 15),
+                        hintText: "Search For Doctor"),
+                  ),
                 ),
               ),
               Container(
@@ -95,7 +130,7 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.fromLTRB(0, 32, 0, 0),
+                padding: EdgeInsets.fromLTRB(0, 32, 0, 20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -119,18 +154,25 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    DoctorCard(
-                      doctorName: "Dr Utrodus",
-                    ),
-                    DoctorCard(),
-                    DoctorCard()
-                  ],
-                ),
-              ),
+              doctors.length > 0
+                  ? Container(
+                      height: 236,
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        addRepaintBoundaries: true,
+                        shrinkWrap: true,
+                        itemCount: doctors.length,
+                        itemBuilder: (context, index) {
+                          return DoctorCard(
+                            doctorName: doctors[index]["name"],
+                            photo: doctors[index]["photo"],
+                            specialist: doctors[index]['specialist'],
+                            review: doctors[index]['reviews'],
+                          );
+                        },
+                      ),
+                    )
+                  : Container()
             ],
           ),
         ),
