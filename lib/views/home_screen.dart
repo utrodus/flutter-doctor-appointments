@@ -1,6 +1,8 @@
 import 'package:doctor_appointments/controllers/DoctorsController.dart';
+import 'package:doctor_appointments/models/doctors.dart';
 import 'package:doctor_appointments/views/alldoctors_screen.dart';
 import 'package:doctor_appointments/views/components/doctor_cart.dart';
+import 'package:doctor_appointments/views/detaildoctor_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -13,7 +15,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   // list doctors
-  List doctors = [];
+  List<DoctorsModel> doctors = [];
 
   @override
   void initState() {
@@ -22,12 +24,11 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   getDoctorData() {
-    Future<List<dynamic>> getDoctor = DoctorController.getAllDoctors();
-    getDoctor.then((value) => {
-          setState(() {
-            doctors = value;
-          })
-        });
+    DoctorController.getAllDoctors().then((value) {
+      setState(() {
+        doctors = value;
+      });
+    });
   }
 
   @override
@@ -169,18 +170,27 @@ class _HomeScreenState extends State<HomeScreen> {
   _doctorsList(doctors) {
     List<Widget> listDoctors = [];
     for (var index = 0; index < doctors.length; index++) {
-      listDoctors.add(DoctorCard(
-        doctorName: doctors[index]["name"],
-        photo: doctors[index]["photo"],
-        specialist: doctors[index]['specialist'],
-        review: doctors[index]['reviews'],
-        isOnline: doctors[index]['isOnline'],
+      listDoctors.add(InkWell(
+        onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => DetailDoctorScreen(
+                    doctor: doctors[index],
+                  )),
+        ),
+        child: DoctorCard(
+          doctorName: doctors[index].name,
+          photo: doctors[index].photo,
+          specialist: doctors[index].specialist,
+          review: doctors[index].reviews,
+          isOnline: doctors[index].isOnline,
+        ),
       ));
     }
 
     return Container(
         child: SingleChildScrollView(
-            padding: EdgeInsets.fromLTRB(10, 10, 0, 20),
+            padding: EdgeInsets.fromLTRB(10, 10, 0, 0),
             scrollDirection: Axis.horizontal,
             child: Row(
               children: listDoctors,
