@@ -325,6 +325,22 @@ class DetailDoctorScreen extends StatelessWidget {
                   ),
                 ],
               ),
+            ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(20, 40, 20, 0),
+              child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Color(0xff3E64FF),
+                    padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15),
+                  ),
+                  onPressed: () {},
+                  child: Container(
+                    child: Text(
+                      "Book Appointment",
+                      style: TextStyle(
+                          fontSize: 15, fontFamily: "Poppins-SemiBold"),
+                    ),
+                  )),
             )
           ],
         ),
