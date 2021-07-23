@@ -25,6 +25,8 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.2
   flutter_svg: ^0.22.0
+  cached_network_image: ^3.1.0
+
 
 dev_dependencies:
   flutter_test:
@@ -45,6 +47,7 @@ flutter:
     - assets/svg/phone.svg
     - assets/svg/video.svg
     - assets/doctors.json
+    - assets/placeholder.jpg
 
   fonts:
     - family: Poppins-Regular

@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class DoctorCard extends StatelessWidget {
@@ -32,15 +33,21 @@ class DoctorCard extends StatelessWidget {
             padding: EdgeInsets.fromLTRB(0, 0, 0, 18),
             child: Stack(
               children: [
-                Container(
-                  width: 72,
-                  height: 72,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    image: DecorationImage(
-                        image: NetworkImage(photo), fit: BoxFit.cover),
-                  ),
-                ),
+                ClipRRect(
+                    borderRadius: BorderRadius.circular(10000.0),
+                    child: CachedNetworkImage(
+                      imageUrl: photo,
+                      fit: BoxFit.cover,
+                      placeholder: (context, url) => Image.asset(
+                        "assets/placeholder.jpg",
+                        fit: BoxFit.cover,
+                        width: 72,
+                        height: 72,
+                      ),
+                      width: 72,
+                      height: 72,
+                      errorWidget: (context, url, error) => Icon(Icons.error),
+                    )),
                 isOnline
                     ? Positioned(
                         right: 1,
@@ -85,12 +92,10 @@ class DoctorCard extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Padding(
-                  padding: EdgeInsets.only(right: 2.0),
-                  child: Icon(
-                    Icons.star,
-                    size: 16,
-                  ),
+                Icon(
+                  Icons.star,
+                  size: 16,
+                  color: Color(0xFFF7C480),
                 ),
                 Container(
                   width: 100,
