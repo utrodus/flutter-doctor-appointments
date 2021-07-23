@@ -1,7 +1,9 @@
 import 'package:doctor_appointments/controllers/DoctorsController.dart';
+import 'package:doctor_appointments/models/doctors.dart';
 import 'package:flutter/material.dart';
 
-import 'components/doctor_cart.dart';
+import 'components/doctor_card.dart';
+import 'detaildoctor_screen.dart';
 
 class AllDoctorsScreen extends StatefulWidget {
   AllDoctorsScreen({Key? key}) : super(key: key);
@@ -16,7 +18,7 @@ class _AllDoctorsScreenState extends State<AllDoctorsScreen> {
   TextEditingController searchTextController = TextEditingController(text: "");
 
   // list doctors
-  List doctors = [];
+  List<DoctorsModel> doctors = [];
 
   List foundDoctors = [];
 
@@ -28,13 +30,12 @@ class _AllDoctorsScreenState extends State<AllDoctorsScreen> {
   }
 
   getDoctorData() {
-    Future<List<dynamic>> getDoctor = DoctorController.getAllDoctors();
-    getDoctor.then((value) => {
-          setState(() {
-            doctors = value;
-            foundDoctors = value;
-          })
-        });
+    DoctorController.getAllDoctors().then((value) {
+      setState(() {
+        doctors = value;
+        foundDoctors = value;
+      });
+    });
   }
 
   void _runFilter(String enteredKeyword) {
@@ -43,8 +44,10 @@ class _AllDoctorsScreenState extends State<AllDoctorsScreen> {
       results = doctors;
     } else {
       results = doctors
-          .where((user) =>
-              user["name"].toLowerCase().contains(enteredKeyword.toLowerCase()))
+          .where((doctor) => doctor.name
+              .toString()
+              .toLowerCase()
+              .contains(enteredKeyword.toLowerCase()))
           .toList();
     }
     setState(() {
@@ -121,13 +124,20 @@ class _AllDoctorsScreenState extends State<AllDoctorsScreen> {
                       shrinkWrap: true,
                       itemCount: foundDoctors.length,
                       itemBuilder: (context, index) {
-                        return Container(
+                        return InkWell(
+                          onTap: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => DetailDoctorScreen(
+                                      doctor: doctors[index],
+                                    )),
+                          ),
                           child: DoctorCard(
-                            doctorName: foundDoctors[index]["name"],
-                            photo: foundDoctors[index]["photo"],
-                            specialist: foundDoctors[index]['specialist'],
-                            review: foundDoctors[index]['reviews'],
-                            isOnline: foundDoctors[index]['isOnline'],
+                            doctorName: foundDoctors[index].name,
+                            photo: foundDoctors[index].photo,
+                            specialist: foundDoctors[index].specialist,
+                            review: foundDoctors[index].reviews,
+                            isOnline: foundDoctors[index].isOnline,
                           ),
                         );
                       },

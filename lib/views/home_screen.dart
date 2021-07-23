@@ -1,7 +1,7 @@
 import 'package:doctor_appointments/controllers/DoctorsController.dart';
 import 'package:doctor_appointments/models/doctors.dart';
 import 'package:doctor_appointments/views/alldoctors_screen.dart';
-import 'package:doctor_appointments/views/components/doctor_cart.dart';
+import 'package:doctor_appointments/views/components/doctor_card.dart';
 import 'package:doctor_appointments/views/detaildoctor_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
