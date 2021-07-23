@@ -18,7 +18,7 @@ class DoctorController {
           photo: doctor['photo'],
           rating: doctor['rating'],
           reviews: doctor['reviews'],
-          workingTime: doctor['workingTime'],
+          workingTime: doctor['working_time'],
           experience: doctor['experience']);
       listDoctors.add(data);
     }
