@@ -7,7 +7,7 @@ UI App For Find and book doctor’s appointment.
 ### Features : 
 - Using Flutter 2.2.1
 - Load local data from json
-- Searching doctor
+- Doctor Searching
 - Media Query
 - Custom Flutter Widget
 
