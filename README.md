@@ -1,4 +1,4 @@
-![GitHub followers](https://img.shields.io/github/followers/utrodus.svg?style=social&label=Follow&maxAge=2592000)](https://github.com/utrodus?tab=followers)
+[![GitHub followers](https://img.shields.io/github/followers/utrodus.svg?style=social&label=Follow&maxAge=2592000)](https://github.com/utrodus?tab=followers) 
 
 ## Doctor Appointments App - Flutter (Submission Dicoding)
 UI App For Find and book doctor’s appointment.
