@@ -1,4 +1,4 @@
-## Doctor Appointments App - Flutter (Submission Dicoding)
+## Doctor Appointments App - Flutter (Dicoding Submission : Belajar Membuat Aplikasi Flutter untuk Pemula)
 UI App For Find and book doctor’s appointment.
 
 ### Results:
