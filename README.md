@@ -27,7 +27,7 @@ UI App built with Flutter for finding and booking doctor’s appointments.
 - Github : [![GitHub followers](https://img.shields.io/github/followers/utrodus.svg?style=social&label=Follow&maxAge=2592000)](https://github.com/utrodus?tab=followers) 
 - Instagram : [@come.said](https://www.instagram.com/come.said)
 - WhatsApp : [+62 816 5416 082](https://wa.me/628165416082)
-- Email : [come.programmer@gmail.com](mailto:come.programmer@gmail.com)
+- Email : [contact.utrodus@gmail.com](mailto:contact.utrodus@gmail.com)
 
 ---
 
