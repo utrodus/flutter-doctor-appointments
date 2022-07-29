@@ -1,26 +1,25 @@
 ## Flutter Doctor Appointments App (Dicoding Submission : Learn to Make Flutter Apps for Beginners)
 UI App built with Flutter for finding and booking doctor’s appointments.
 
-### Results:
-![enter image description here](https://media.giphy.com/media/53zeIyPdnbCSqHSEX8/giphy.gif)
-
-### Features : 
+### ✨ Features : 
 - Using Flutter 2.2.1
 - Load local data from json
 - Doctor Searching
 - Media Query
 - Custom Flutter Widget
 
-**Packages we are using :**
+**📦 Packages Used :**
 - flutter_svg: [link](https://pub.dev/packages/flutter_svg)
 - evaicons: [link](https://pub.dev/packages/eva_icons_flutter)
 
-**Fonts**
-
+**🎨 Fonts**
 - Poppins [link](https://fonts.google.com/specimen/Poppins)
 
+### 🎯 Results (Mobile):
+![enter image description here](https://media.giphy.com/media/53zeIyPdnbCSqHSEX8/giphy.gif)
+
 #### Final Submission from course [Belajar Membuat Aplikasi Flutter untuk Pemula](https://www.dicoding.com/academies/159).
-#### [My Certificate](https://www.dicoding.com/certificates/1OP8L5YN8ZQK) : 
+#### [My Certificate 📜](https://www.dicoding.com/certificates/1OP8L5YN8ZQK) : 
 ![sertifikat kelulusan](https://i.ibb.co/5Y0wxQx/Screenshot-1.png)
 
 ### Contact Info
